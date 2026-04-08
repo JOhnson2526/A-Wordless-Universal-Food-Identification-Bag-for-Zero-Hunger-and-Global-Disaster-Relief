@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordless Universal Food Identification Bag</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #2c7a3d;
+            font-size: 1.8em;
+            flex: 1;
+        }
+        .section {
+            margin: 25px 0;
+        }
+        h2 {
+            color: #1a5276;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        .speak-button {
+            display: block;
+            margin: 30px auto;
+            padding: 12px 24px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .speak-button:hover {
+            background-color: #2980b9;
+        }
+        .color-symbol-guide {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .symbol-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .symbol-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .symbol-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+        .symbol-circle.green {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .symbol-circle.yellow {
+            background-color: #FFC107;
+            color: #333;
+        }
+        .symbol-circle.red {
+            background-color: #F44336;
+            color: white;
+        }
+        .symbol-circle.blue {
+            background-color: #2196F3;
+            color: white;
+        }
+        .symbol-info {
+            flex: 1;
+        }
+        .symbol-info h3 {
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .symbol-info p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9em;
+        }
+        .language-selector {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .language-btn {
+            padding: 6px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+        .language-btn:hover {
+            background-color: #f0f0f0;
+        }
+        .language-btn.active {
+            background-color: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+            .color-symbol-guide {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Universal Food Bag: Symbol & Color Guide</h1>
+            <div class="language-selector">
+                <button class="language-btn active" data-lang="en">English</button>
+                <button class="language-btn" data-lang="es">Español</button>
+                <button class="language-btn" data-lang="fr">Français</button>
+                <button class="language-btn" data-lang="de">Deutsch</button>
+                <button class="language-btn" data-lang="zh">中文</button>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📝 Symbol & Color Meanings</h2>
+            <p>This guide explains the universal symbols and colors used on the food identification bag to help people from any language or literacy level understand food information.</p>
+            
+            <div class="color-symbol-guide">
+                <div class="symbol-item">
+                    <span class="symbol-circle green">🍚</span>
+                    <div class="symbol-info">
+                        <h3>Green Circle with Rice Bowl</h3>
+                        <p>Indicates the main food item - rice. Green symbolizes safety and natural food.</p>
+                    </div>
+                </div>
+                <div class="symbol-item">
+                    <span class="symbol-circle yellow">🥚</span>
+                    <div class="symbol-info">
+                        <h3>Yellow Circle with Egg</h3>
+                        <p>Indicates the food contains protein. Yellow symbolizes energy and nutrition.</p>
+                    </div>
+                </div>
+                <div class="symbol-item">
+                    <span class="symbol-circle red">🥦</span>
+                    <div class="symbol-info">
+                        <h3>Red Circle with Broccoli</h3>
+                        <p>Indicates the food contains vitamins. Red symbolizes health and essential nutrients.</p>
+                    </div>
+                </div>
+                <div class="symbol-item">
+                    <span class="symbol-circle blue">♿</span>
+                    <div class="symbol-info">
+                        <h3>Blue Circle with Wheelchair</h3>
+                        <p>Indicates the food is suitable for people with disabilities. Blue symbolizes accessibility.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🌍 Universal Design Principles</h2>
+            <p>The food bag uses a combination of colors and symbols that are universally understood across cultures:</p>
+            <ul>
+                <li><strong>Colors:</strong> Selected for their universal associations (green for safety, yellow for energy, red for health, blue for accessibility)</li>
+                <li><strong>Symbols:</strong> Simple, recognizable icons that transcend language barriers</li>
+                <li><strong>Layout:</strong> Clear, consistent placement of information for easy understanding</li>
+                <li><strong>Accessibility:</strong> Designed to be understood by people of all ages, abilities, and literacy levels</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>🌱 Purpose & Impact</h2>
+            <p>This universal food identification system helps:</p>
+            <ul>
+                <li>Refugees and displaced persons understand food information without language barriers</li>
+                <li>Illiterate individuals make informed decisions about food usage</li>
+                <li>Emergency responders distribute food more effectively during disasters</li>
+                <li>Reduce food waste by ensuring proper usage</li>
+                <li>Support global efforts to achieve Zero Hunger</li>
+            </ul>
+        </div>
+        
+        <button class="speak-button" onclick="speakContent()">🔊 Listen to Guide</button>
+    </div>
+    
+    <script>
+        // Language translations
+        const translations = {
+            en: {
+                title: "Universal Food Bag: Symbol & Color Guide",
+                symbolColorMeanings: "📝 Symbol & Color Meanings",
+                symbolColorIntro: "This guide explains the universal symbols and colors used on the food identification bag to help people from any language or literacy level understand food information.",
+                greenCircleTitle: "Green Circle with Rice Bowl",
+                greenCircleDesc: "Indicates the main food item - rice. Green symbolizes safety and natural food.",
+                yellowCircleTitle: "Yellow Circle with Egg",
+                yellowCircleDesc: "Indicates the food contains protein. Yellow symbolizes energy and nutrition.",
+                redCircleTitle: "Red Circle with Broccoli",
+                redCircleDesc: "Indicates the food contains vitamins. Red symbolizes health and essential nutrients.",
+                blueCircleTitle: "Blue Circle with Wheelchair",
+                blueCircleDesc: "Indicates the food is suitable for people with disabilities. Blue symbolizes accessibility.",
+                universalPrinciples: "🌍 Universal Design Principles",
+                universalPrinciplesText: "The food bag uses a combination of colors and symbols that are universally understood across cultures:",
+                universalPrinciplesList: ["Colors: Selected for their universal associations (green for safety, yellow for energy, red for health, blue for accessibility)", "Symbols: Simple, recognizable icons that transcend language barriers", "Layout: Clear, consistent placement of information for easy understanding", "Accessibility: Designed to be understood by people of all ages, abilities, and literacy levels"],
+                purposeImpact: "🌱 Purpose & Impact",
+                purposeImpactText: "This universal food identification system helps:",
+                purposeImpactList: ["Refugees and displaced persons understand food information without language barriers", "Illiterate individuals make informed decisions about food usage", "Emergency responders distribute food more effectively during disasters", "Reduce food waste by ensuring proper usage", "Support global efforts to achieve Zero Hunger"],
+                speakButton: "🔊 Listen to Guide"
+            },
+            es: {
+                title: "Bolsa de Alimentos Universal: Guía de Símbolos y Colores",
+                symbolColorMeanings: "📝 Significado de Símbolos y Colores",
+                symbolColorIntro: "Esta guía explica los símbolos y colores universales utilizados en la bolsa de identificación de alimentos para ayudar a personas de cualquier idioma o nivel de alfabetización a entender la información sobre los alimentos.",
+                greenCircleTitle: "Círculo Verde con Tazón de Arroz",
+                greenCircleDesc: "Indica el alimento principal - arroz. El verde simboliza seguridad y alimento natural.",
+                yellowCircleTitle: "Círculo Amarillo con Huevo",
+                yellowCircleDesc: "Indica que el alimento contiene proteína. El amarillo simboliza energía y nutrición.",
+                redCircleTitle: "Círculo Rojo con Brócoli",
+                redCircleDesc: "Indica que el alimento contiene vitaminas. El rojo simboliza salud y nutrientes esenciales.",
+                blueCircleTitle: "Círculo Azul con Silla de Ruedas",
+                blueCircleDesc: "Indica que el alimento es adecuado para personas con discapacidades. El azul simboliza accesibilidad.",
+                universalPrinciples: "🌍 Principios de Diseño Universal",
+                universalPrinciplesText: "La bolsa de alimentos usa una combinación de colores y símbolos que se entienden universalmente en todas las culturas:",
+                universalPrinciplesList: ["Colores: Seleccionados por sus asociaciones universales (verde para seguridad, amarillo para energía, rojo para salud, azul para accesibilidad)", "Símbolos: Iconos simples y reconocibles que trascienden las barreras del lenguaje", "Diseño: Colocación clara y consistente de la información para una fácil comprensión", "Accesibilidad: Diseñado para ser comprendido por personas de todas las edades, capacidades y niveles de alfabetización"],
+                purposeImpact: "🌱 Propósito e Impacto",
+                purposeImpactText: "Este sistema universal de identificación de alimentos ayuda a:",
+                purposeImpactList: ["Refugiados y personas desplazadas a entender la información sobre los alimentos sin barreras lingüísticas", "Personas analfabetas a tomar decisiones informadas sobre el uso de los alimentos", "Los equipos de emergencia a distribuir alimentos de manera más efectiva durante los desastres", "Reducir el desperdicio de alimentos al garantizar su uso adecuado", "Apoyar los esfuerzos globales para lograr el Hambre Cero"],
+                speakButton: "🔊 Escuchar Guía"
+            },
+            fr: {
+                title: "Sac à Aliments Universel: Guide des Symboles et Couleurs",
+                symbolColorMeanings: "📝 Signification des Symboles et Couleurs",
+                symbolColorIntro: "Ce guide explique les symboles et couleurs universels utilisés sur le sac d'identification alimentaire pour aider les personnes de n'importe quelle langue ou niveau d'alphabétisation à comprendre les informations sur les aliments.",
+                greenCircleTitle: "Cercle Vert avec Bol de Riz",
+                greenCircleDesc: "Indique l'aliment principal - riz. Le vert symbolise la sécurité et les aliments naturels.",
+                yellowCircleTitle: "Cercle Jaune avec Œuf",
+                yellowCircleDesc: "Indique que l'aliment contient des protéines. Le jaune symbolise l'énergie et la nutrition.",
+                redCircleTitle: "Cercle Rouge avec Brocoli",
+                redCircleDesc: "Indique que l'aliment contient des vitamines. Le rouge symbolise la santé et les nutriments essentiels.",
+                blueCircleTitle: "Cercle Bleu avec Fauteuil roulant",
+                blueCircleDesc: "Indique que l'aliment convient aux personnes handicapées. Le bleu symbolise l'accessibilité.",
+                universalPrinciples: "🌍 Principes de Design Universel",
+                universalPrinciplesText: "Le sac à aliments utilise une combinaison de couleurs et de symboles qui sont universellement compris dans toutes les cultures:",
+                universalPrinciplesList: ["Couleurs: Sélectionnées pour leurs associations universelles (vert pour la sécurité, jaune pour l'énergie, rouge pour la santé, bleu pour l'accessibilité)", "Symboles: Icônes simples et reconnaissables qui transcendent les barrières linguistiques", "Disposition: Placement clair et cohérent des informations pour une compréhension facile", "Accessibilité: Conçu pour être compris par des personnes de tous âges, capacités et niveaux d'alphabétisation"],
+                purposeImpact: "🌱 Objectif et Impact",
+                purposeImpactText: "Ce système universel d'identification des aliments aide à:",
+                purposeImpactList: ["Les réfugiés et les personnes déplacées à comprendre les informations sur les aliments sans barrières linguistiques", "Les personnes analphabètes à prendre des décisions éclairées sur l'utilisation des aliments", "Les intervenants en cas d'urgence à distribuer les aliments de manière plus efficace pendant les catastrophes", "Réduire le gaspillage alimentaire en garantissant une utilisation appropriée", "Soutenir les efforts mondiaux pour atteindre la Faim Zéro"],
+                speakButton: "🔊 Écouter le Guide"
+            },
+            de: {
+                title: "Universeller Lebensmittelbeutel: Symbol- und Farbleitfaden",
+                symbolColorMeanings: "📝 Symbol- und Farbbedeutungen",
+                symbolColorIntro: "Dieser Leitfaden erläutert die universellen Symbole und Farben, die auf dem Lebensmittelidentifikationsbeutel verwendet werden, um Menschen jeder Sprache oder Alphabetisierungsstufe zu helfen, Lebensmittelinformationen zu verstehen.",
+                greenCircleTitle: "Grüner Kreis mit Reisschale",
+                greenCircleDesc: "Gibt das Hauptnahrungsmittel an - Reis. Grün symbolisiert Sicherheit und natürliche Nahrung.",
+                yellowCircleTitle: "Gelber Kreis mit Ei",
+                yellowCircleDesc: "Gibt an, dass das Lebensmittel Protein enthält. Gelb symbolisiert Energie und Ernährung.",
+                redCircleTitle: "Roter Kreis mit Brokkoli",
+                redCircleDesc: "Gibt an, dass das Lebensmittel Vitamine enthält. Rot symbolisiert Gesundheit und essentielle Nährstoffe.",
+                blueCircleTitle: "Blauer Kreis mit Rollstuhl",
+                blueCircleDesc: "Gibt an, dass das Lebensmittel für Menschen mit Behinderungen geeignet ist. Blau symbolisiert Zugänglichkeit.",
+                universalPrinciples: "🌍 Universelle Designgrundsätze",
+                universalPrinciplesText: "Der Lebensmittelbeutel verwendet eine Kombination von Farben und Symbolen, die in allen Kulturen universell verstanden werden:",
+                universalPrinciplesList: ["Farben: Ausgewählt für ihre universellen Assoziationen (grün für Sicherheit, gelb für Energie, rot für Gesundheit, blau für Zugänglichkeit)", "Symbole: Einfache, erkennbare Icons, die Sprachbarrieren überwinden", "Layout: Klare, konsistente Platzierung von Informationen für eine einfache Verständlichkeit", "Zugänglichkeit: Entwickelt für Menschen jeden Alters, jeder Fähigkeit und jeden Alphabetisierungsgrads"],
+                purposeImpact: "🌱 Zweck und Wirkung",
+                purposeImpactText: "Dieses universelle Lebensmittelidentifikationssystem hilft:",
+                purposeImpactList: ["Flüchtlingen und Vertriebenen, Lebensmittelinformationen ohne Sprachbarrieren zu verstehen", "Analphabeten, informierte Entscheidungen über den Lebensmittelgebrauch zu treffen", "Rettungskräften, Lebensmittel während Katastrophen effektiver zu verteilen", "Lebensmittelverschwendung durch sichere Verwendung zu reduzieren", "Globale Bemühungen zur Erreichung von Null-Hunger zu unterstützen"],
+                speakButton: "🔊 Guide anhören"
+            },
+            zh: {
+                title: "通用食品袋：符号和颜色指南",
+                symbolColorMeanings: "📝 符号和颜色含义",
+                symbolColorIntro: "本指南解释了食品识别袋上使用的通用符号和颜色，帮助任何语言或识字水平的人理解食品信息。",
+                greenCircleTitle: "绿色圆圈配米饭碗",
+                greenCircleDesc: "表示主要食品 - 米饭。绿色象征安全和天然食品。",
+                yellowCircleTitle: "黄色圆圈配鸡蛋",
+                yellowCircleDesc: "表示食品含有蛋白质。黄色象征能量和营养。",
+                redCircleTitle: "红色圆圈配西兰花",
+                redCircleDesc: "表示食品含有维生素。红色象征健康和必需营养素。",
+                blueCircleTitle: "蓝色圆圈配轮椅",
+                blueCircleDesc: "表示食品适合残障人士。蓝色象征无障碍。",
+                universalPrinciples: "🌍 通用设计原则",
+                universalPrinciplesText: "食品袋使用了在各种文化中普遍理解的颜色和符号组合：",
+                universalPrinciplesList: ["颜色：选择具有普遍关联的颜色（绿色表示安全，黄色表示能量，红色表示健康，蓝色表示无障碍）", "符号：简单、可识别的图标，超越语言障碍", "布局：信息放置清晰一致，易于理解", "无障碍：设计为适合所有年龄、能力和识字水平的人理解"],
+                purposeImpact: "🌱 目的和影响",
+                purposeImpactText: "这种通用食品识别系统有助于：",
+                purposeImpactList: ["难民和流离失所者无需语言障碍理解食品信息", "文盲人士就食品使用做出明智决定", "应急响应人员在灾难期间更有效地分发食品", "通过确保正确使用减少食品浪费", "支持全球实现零饥饿的努力"],
+                speakButton: "🔊 听指南"
+            }
+        };
+        
+        // Current language
+        let currentLang = 'en';
+        
+        // Update content based on selected language
+        function updateLanguage(lang) {
+            currentLang = lang;
+            const trans = translations[lang];
+            
+            // Update title
+            document.querySelector('h1').textContent = trans.title;
+            
+            // Update symbol & color meanings section
+            document.querySelector('h2:nth-of-type(1)').textContent = trans.symbolColorMeanings;
+            document.querySelector('h2:nth-of-type(1) + p').textContent = trans.symbolColorIntro;
+            
+            // Update symbol items
+            const symbolItems = document.querySelectorAll('.symbol-item');
+            symbolItems[0].querySelector('h3').textContent = trans.greenCircleTitle;
+            symbolItems[0].querySelector('p').textContent = trans.greenCircleDesc;
+            symbolItems[1].querySelector('h3').textContent = trans.yellowCircleTitle;
+            symbolItems[1].querySelector('p').textContent = trans.yellowCircleDesc;
+            symbolItems[2].querySelector('h3').textContent = trans.redCircleTitle;
+            symbolItems[2].querySelector('p').textContent = trans.redCircleDesc;
+            symbolItems[3].querySelector('h3').textContent = trans.blueCircleTitle;
+            symbolItems[3].querySelector('p').textContent = trans.blueCircleDesc;
+            
+            // Update universal principles section
+            document.querySelector('h2:nth-of-type(2)').textContent = trans.universalPrinciples;
+            document.querySelector('h2:nth-of-type(2) + p').textContent = trans.universalPrinciplesText;
+            const principlesList = document.querySelectorAll('h2:nth-of-type(2) + p + ul li');
+            trans.universalPrinciplesList.forEach((item, index) => {
+                if (principlesList[index]) principlesList[index].textContent = item;
+            });
+            
+            // Update purpose & impact section
+            document.querySelector('h2:nth-of-type(3)').textContent = trans.purposeImpact;
+            document.querySelector('h2:nth-of-type(3) + p').textContent = trans.purposeImpactText;
+            const impactList = document.querySelectorAll('h2:nth-of-type(3) + p + ul li');
+            trans.purposeImpactList.forEach((item, index) => {
+                if (impactList[index]) impactList[index].textContent = item;
+            });
+            
+            // Update speak button
+            document.querySelector('.speak-button').textContent = trans.speakButton;
+            
+            // Update active language button
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+        
+        // Add event listeners to language buttons
+        document.querySelectorAll('.language-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                updateLanguage(btn.dataset.lang);
+            });
+        });
+        
+        function speakContent() {
+            const trans = translations[currentLang];
+            const content = `${trans.title}. ${trans.symbolColorMeanings}. ${trans.symbolColorIntro}. ${trans.greenCircleTitle}: ${trans.greenCircleDesc}. ${trans.yellowCircleTitle}: ${trans.yellowCircleDesc}. ${trans.redCircleTitle}: ${trans.redCircleDesc}. ${trans.blueCircleTitle}: ${trans.blueCircleDesc}. ${trans.universalPrinciples}. ${trans.universalPrinciplesText}. ${trans.universalPrinciplesList.join('. ')}. ${trans.purposeImpact}. ${trans.purposeImpactText}. ${trans.purposeImpactList.join('. ')}`;
+            
+            const speech = new SpeechSynthesisUtterance(content);
+            speech.lang = currentLang === 'zh' ? 'zh-CN' : currentLang === 'es' ? 'es-ES' : currentLang === 'fr' ? 'fr-FR' : currentLang === 'de' ? 'de-DE' : 'en-US';
+            speech.rate = 1;
+            speechSynthesis.speak(speech);
+        }
+    </script>
+</body>
+</html>
